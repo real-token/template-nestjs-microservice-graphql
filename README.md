@@ -76,7 +76,7 @@ Exemple :
 ```typescript
 @Injectable()
 export class TodoService {
-    constructor(@InjectRepository(Todo) private todoRepository: Repository<Todo>) {}
+    constructor() {}
 
     findAll(): Promise<Todo[]> {
         return this.todoRepository.find();
