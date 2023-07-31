@@ -76,10 +76,12 @@ Exemple :
 ```typescript
 @Injectable()
 export class TodoService {
+    private todos: Todo[] = [];
+
     constructor() {}
 
     findAll(): Promise<Todo[]> {
-        return this.todoRepository.find();
+        return this.todos;
     }
 }
 ```
