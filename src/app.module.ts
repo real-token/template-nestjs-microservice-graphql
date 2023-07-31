@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import {YogaDriver, YogaDriverConfig} from "@graphql-yoga/nestjs";
 import {GraphQLModule} from "@nestjs/graphql";
 import {ConfigModule} from "@nestjs/config";
+import {TodoModule} from "./modules/todo/todo.module";
 
 @Module({
   imports: [
@@ -12,8 +13,10 @@ import {ConfigModule} from "@nestjs/config";
       isGlobal: true,
     }),
     GraphQLModule.forRoot<YogaDriverConfig>({
-      driver: YogaDriver
-    })
+      driver: YogaDriver,
+      autoSchemaFile: true,
+    }),
+    TodoModule
   ],
   controllers: [AppController],
   providers: [AppService],
