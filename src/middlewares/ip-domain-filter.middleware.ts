@@ -10,7 +10,7 @@ export class IpDomainFilterMiddleware implements NestMiddleware {
         if (origin ? this.allowedDomains.includes(origin) : true) {
             next();
         } else {
-            res.status(403).send('Votre adresse IP ou domaine d\'origine n\'est pas autorisé.');
+            res.status(403).send('Forbidden.');
         }
     }
 }

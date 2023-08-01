@@ -36,7 +36,7 @@ describe('IpDomainFilterMiddleware', () => {
             middleware.use(req as Request, res as Response, next);
 
             expect(res.status).toHaveBeenCalledWith(403);
-            expect(res.send).toHaveBeenCalledWith('Votre adresse IP ou domaine d\'origine n\'est pas autorisé.');
+            expect(res.send).toHaveBeenCalledWith('Forbidden.');
             expect(next).not.toHaveBeenCalled();
         });
     });
