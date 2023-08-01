@@ -15,6 +15,7 @@
     "lint": "node_modules/.bin/eslint \\\"{src,apps,libs,test}/**/*.ts\\\" --fix",
     "test:resolvers": "node_modules/.bin/jest --config test/resolvers/jest.resolvers.config.ts",
     "test:services": "node_modules/.bin/jest --config ./test/services/jest.services.config.ts",
+    "test:middlewares": "node_modules/.bin/jest --config ./test/middlewares/jest.middlewares.config.ts",
     "tests": "npm run test:resolvers && npm run test:services",
     "test:watch": "node_modules/.bin/jest --watch",
     "test:cov": "node_modules/.bin/jest --coverage",
