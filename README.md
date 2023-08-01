@@ -18,9 +18,38 @@ First to install and run the project locally you'll need to install deps :
 npm install
 ```
 
-## Utilisation
+## Usage
 
 To use this project as a template you'll just have to change the `.git` folder for your new repo.
+
+### Standalone Server
+
+By default, the application will run as a standalone server. The code defining the server configuration in `main.ts`:
+
+```typescript
+const app = await NestFactory.create(AppModule);
+await app.listen(4242);
+```
+
+The server will be available at `http://localhost:4242`.
+
+### Microservice Mode
+
+If you want to run the application as a microservice, you'll need to set an environment variable called \`MICROSERVICE_MODE\` to \`true\`. Here's how you can start the application in microservice mode:
+
+```typescript
+app.connectMicroservice({
+    transport: Transport.TCP, // You can configure other transport layers such as Redis, RabbitMQ, etc.
+    options: {
+        port: 4243, // Microservice port
+    },
+});
+
+await app.startAllMicroservicesAsync();
+```
+The microservice will be available at \`tcp://localhost:4243\` (or whatever transport layer and options you've configured in \`main.ts\`).
+
+You can customize the transport layer, port, and other options in the \`main.ts\` file. Refer to the [NestJS Microservices documentation](https://docs.nestjs.com/microservices/basics) for more information on available options and configurations.
 
 ### Available commands
 
